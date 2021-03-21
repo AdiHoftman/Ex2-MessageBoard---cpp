@@ -1,21 +1,24 @@
 #include <string>
 #include "Direction.hpp"
 #include <vector>
-#include<stdexcept>
+#include <iostream>
 using namespace std;
 
 namespace ariel {
     class Board {
-        vector<vector<char>> boardMsg;
+        std::vector<vector<char>> boardMsg;
         uint rows;
         uint cols;
     public:
         Board() {
-            boardMsg = vector<vector<char>>(rows, vector<char>(cols, '_'));
+            boardMsg = std::vector<vector<char>>(rows, vector<char>(cols, '_'));
         }
-        ~Board() { }
-        void post(int row, int column, Direction direction, std::string message);
-        int read(int row, int column, Direction direction, int length);
+        ~Board() { 
+            boardMsg.clear();
+        }
+        void post(uint row, uint col, Direction direction, const string &סmsg);
+        string read(uint row, uint col, Direction direction, int length);
         void show();
+        void resizeMyBoard(uint row, uint col);
     };
 }
