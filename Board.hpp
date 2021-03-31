@@ -19,6 +19,5 @@ namespace ariel {
         void post(unsigned int row, unsigned int col, Direction direction, const string &msg);
         string read(unsigned int row, unsigned int col, Direction direction, unsigned int length);
         void show();
-        void resizeMyBoard(unsigned int row, unsigned int col);
     };
 }
