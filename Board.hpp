@@ -1,24 +1,24 @@
 #include <string>
 #include "Direction.hpp"
-#include <vector>
+#include <map>
 #include <iostream>
 using namespace std;
 
+struct CharMes{
+    char b = '_';
+};
+
 namespace ariel {
     class Board {
-        std::vector<vector<char>> boardMsg;
-        uint rows;
-        uint cols;
+        
+        unsigned int rows, cols;
+        std::map<unsigned int, map<unsigned int, CharMes>> boardMsg;
     public:
-        Board() {
-            boardMsg = std::vector<vector<char>>(rows, vector<char>(cols, '_'));
-        }
-        ~Board() { 
-            boardMsg.clear();
-        }
-        void post(uint row, uint col, Direction direction, const string &סmsg);
-        string read(uint row, uint col, Direction direction, int length);
+        Board();
+        ~Board();
+        void post(unsigned int row, unsigned int col, Direction direction, const string &msg);
+        string read(unsigned int row, unsigned int col, Direction direction, unsigned int length);
         void show();
-        void resizeMyBoard(uint row, uint col);
+        void resizeMyBoard(unsigned int row, unsigned int col);
     };
 }
